@@ -57,6 +57,7 @@
             this.comboBoxDzial.Name = "comboBoxDzial";
             this.comboBoxDzial.Size = new System.Drawing.Size(130, 21);
             this.comboBoxDzial.TabIndex = 2;
+            this.comboBoxDzial.SelectedIndexChanged += new System.EventHandler(this.comboBoxDzial_SelectedIndexChanged);
             // 
             // buttonZapisz
             // 
@@ -66,6 +67,7 @@
             this.buttonZapisz.TabIndex = 3;
             this.buttonZapisz.Text = "Zapisz";
             this.buttonZapisz.UseVisualStyleBackColor = true;
+            this.buttonZapisz.Click += new System.EventHandler(this.buttonZapisz_Click);
             // 
             // buttonOdswiez
             // 
@@ -75,6 +77,7 @@
             this.buttonOdswiez.TabIndex = 4;
             this.buttonOdswiez.Text = "Odśwież";
             this.buttonOdswiez.UseVisualStyleBackColor = true;
+            this.buttonOdswiez.Click += new System.EventHandler(this.buttonOdswiez_Click);
             // 
             // listBoxWynik
             // 
