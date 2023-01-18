@@ -13,14 +13,34 @@ namespace ZadanieDzial
     public partial class Form1 : Form
     {
         int selected;
-        
+
         public Form1()
         {
             InitializeComponent();
-            string[] comboBoxVar = { "IT", "HR", "Design" };
-            comboBoxDzial.Items.AddRange(comboBoxVar);
+            ComboBoxZapelnienie();
 
         }
+
+        
+        public void ComboBoxZapelnienie() {
+
+            
+            using (var db = new obsluga())
+            {
+                var query = from d in db.Dzial
+                            select new
+                            {
+
+                                d.NazwaDzialu,
+                            };
+                foreach (var item in query)
+                {
+                    comboBoxDzial.Items.Add(item.NazwaDzialu);
+                }
+            }
+
+        }
+        
         public void loadingListy()
         {
             
@@ -53,10 +73,7 @@ namespace ZadanieDzial
 
         private void comboBoxDzial_SelectedIndexChanged(object sender, EventArgs e)
         {
-            if (comboBoxDzial.SelectedIndex == 0) { selected = 1; };
-            if (comboBoxDzial.SelectedIndex == 1) { selected = 2; };
-            if (comboBoxDzial.SelectedIndex == 2) { selected = 3; };
-            
+            selected = comboBoxDzial.SelectedIndex + 1;      
         }
 
         private void buttonZapisz_Click(object sender, EventArgs e)
